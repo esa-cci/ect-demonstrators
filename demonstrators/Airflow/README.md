@@ -54,9 +54,9 @@ Inside the DAGs tab in Airflow, you will find the DAG
 6. View the output from frontend and backend server at the URL provided in the 
 `Logs` tab of the Airflow DAG execution.
 
-Frontend will be available at port `8000`
+Frontend will be available at port `3000`
 
-Backend will be available at port `5000`
+Backend will be available at port `8000`
 
 7. The current setup is really basic and simple. 
 One has to make sure to mark the task as `Success` in Airflow UI in order to 
