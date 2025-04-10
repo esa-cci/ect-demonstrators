@@ -23,6 +23,10 @@ dependencies:
   - xcube >= 1.8.0
   - xcube-cci >= 0.11.1
   - zarr <3  # until we can ensure zarr 3 compatibility
+  - pip
+  - pip:
+      - apache-airflow-providers-docker
+      - apache-airflow-providers-cncf-kubernetes
   # Test libs
   - pytest
   - pytest-cov
