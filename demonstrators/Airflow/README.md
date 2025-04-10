@@ -7,6 +7,7 @@ Pre-requisites:
 
 - Docker (use this [link](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository) to install it if you do not have it already)
 - Mamba (from [here](https://github.com/conda-forge/miniforge))
+- Node and NPM (from [here](https://nodejs.org/en/download))
 
 This demo consists of running a basic DAG (directed acyclic graph) on Airflow
 with two simple steps:
@@ -18,6 +19,11 @@ with two simple steps:
 The above demo is to show that we can trigger Docker containers using Airflow.
 
 Steps:
+
+0. Create a new frontend app, run from the Airflow folder:
+```shell
+    npx create-react-app frontend
+```
 
 1. Create a mamba environment where Airflow will run locally. To do that, run
 ```shell
