@@ -1,21 +1,61 @@
 default:
   default_args:
-    start_date: '2025-03-21'
-test_cci_dag:
-  catchup: false
+    start_date: '2025-05-21'
+esa_climate_toolbox_ops_dag:
   default_args:
-    owner: add_your_name_here
-  description: add your description here
-  schedule_interval: 0 0 * * *
+    owner: Tonio Fincke (Brockmann Consult)
+  description: A DAG that exemplifies how the ESA Climate Toolbox can be run from Airflow
   tags:
   - dag_factory
+  schedule_interval: "None"
   task_groups:
-    same_operator_on_multiple_datasets:
-      tooltip: this is a ml task group
+    ect_tasks:
+      tooltip: this is the task group containing the ESA climate toolbox tasks
   tasks:
-    select_operation:
+    chain:
       op_kwargs:
-        op_name: "select_var"
+        operation_inputs: "esacci.AEROSOL.day.L3C.AER_PRODUCTS.AATSR.Envisat.SU.4-3.r1"
+        operations:
+            - subset_temporal_index:
+                time_ind_min: 0
+                time_ind_max: 2
+            - subset_spatial:
+                region:
+                    - -10.0
+                    - 35.0
+                    - 30.0
+                    - 60.0
+            - select_var:
+                var:
+                    - "AAOD550_mean"
+                    - "AAOD550_sdev"
+        write_results: true
+        output_folder: "airflow_subset"
+        output_file_name: "aerosol_subset.zarr"
+        replace_output: true
       operator: airflow.operators.python.PythonOperator
-      python_callable: esa_climate_toolbox.core.get_op
-      task_group_name: same_operator_on_multiple_datasets
+      python_callable: esa_climate_toolbox.core.execute_operations
+      task_group_name: ect_tasks
+      do_xcom_push: false
+    plot:
+      op_kwargs:
+        in_folder: "airflow_subset"
+        ds_name: "aerosol_subset.zarr"
+        var_name: "AAOD550_mean"
+        title: "aerosol_subset.zarr"
+        out_file: "airflow_plot.png"
+        region:
+            - -15.0
+            - 30.0
+            - 25.0
+            - 65.0
+      operator: airflow.operators.python.PythonOperator
+      python_callable: functions.plot_functions.plot_chain_output
+      dependencies: [ chain ]
+      task_group_name: ect_tasks
+      do_xcom_push: false
+    delete_folder:
+      operator: airflow.operators.bash.BashOperator
+      bash_command: "rm -rf \$AIRFLOW_HOME/airflow_subset"
+      dependencies: [ plot ]
+      task_group_name: ect_tasks

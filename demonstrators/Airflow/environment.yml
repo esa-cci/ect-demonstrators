@@ -5,10 +5,11 @@ dependencies:
   # Python
   - python >=3.10
   # Required
-  - airflow
+  - airflow < 3.0
   - cartopy
   - cftime
   - dask
+  - esa-climate-toolbox
   - geopandas
   - matplotlib-base
   - numcodecs
@@ -21,12 +22,13 @@ dependencies:
   - six
   - xarray
   - xcube >= 1.8.0
-  - xcube-cci >= 0.11.1
+  - xcube-cci >= 0.11.7
   - zarr <3  # until we can ensure zarr 3 compatibility
   - pip
   - pip:
       - apache-airflow-providers-docker
-      - apache-airflow-providers-cncf-kubernetes
+      - apache-airflow-providers-cncf-kubernetes < 10.4
+      - dag-factory
   # Test libs
   - pytest
   - pytest-cov
