@@ -1,0 +1,11 @@
+name: ect-cdse
+channels:
+  - conda-forge
+dependencies:
+  # Python
+  - python >=3.10
+  # Required
+  - esa-climate-toolbbox
+  - xcube-stac
+  - jupyterlab
+  - libgdal-netcdf
