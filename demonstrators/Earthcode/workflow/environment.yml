@@ -1,0 +1,11 @@
+name: ke-ec-demo
+channels:
+  - conda-forge
+dependencies:
+  # Python
+  - python >=3.10
+  # Required
+  - esa-climate-toolbox
+  - pip
+  - pip:
+      - deep-code

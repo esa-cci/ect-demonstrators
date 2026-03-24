@@ -1,0 +1,1 @@
+This folder compiles the functionality that is required to publish a dataset and a workflow onto EarthCODE. 
