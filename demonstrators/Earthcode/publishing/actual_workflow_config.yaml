@@ -1,0 +1,26 @@
+workflow_id: 'sss-cci-global-anomalies'
+properties:
+  title: 'Deriving Monthly Anomalies from a CCI Sea Surface Salinity Dataset'
+  description: 'This workflow uses the ESA CCI Toolbox Python Package to show how to get to an estimate of monthly anomalies for Sea Surface Salinity Data. This involves temporal aggregation of the data and the build of a monthly climatology.'
+  keywords:
+  - 'anomalies'
+  - 'cci'
+  - 'ocean'
+  - 'salinity'
+  - 'toolbox'
+  - 'climatology'
+  themes:
+  - 'oceans'
+  license: 'MIT'
+  jupyter_kernel_info:
+    name: 'ke-ec-demo'
+    python_version: 3.14
+    env_file: 'https://github.com/esa-cci/ect-demonstrators/blob/ect-demo/demonstrators/Earthcode/workflow/environment.yml'
+jupyter_notebook_url: 'https://github.com/esa-cci/ect-demonstrators/blob/ect-demo/demonstrators/Earthcode/workflow/sss-anomalies.ipynb'
+contact:
+- name: 'Tonio Fincke'
+  organization: 'Brockmann Consult GmbH'
+  links:
+  - rel: about
+    type: text/html
+    href: 'https://www.brockmann-consult.de'

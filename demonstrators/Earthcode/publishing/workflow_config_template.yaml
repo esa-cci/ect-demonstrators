@@ -1,0 +1,25 @@
+# Workflow Configuration Template
+# Replace all [PLACEHOLDER] values with your actual data
+
+workflow_id: '[REQUIRED: unique identifier for your workflow]'
+properties:
+  title: '[REQUIRED: human-readable title of the workflow]'
+  license: '[REQUIRED: SPDX license identifier, e.g. CC-BY-4.0, MIT, proprietary]'
+  description: '[OPTIONAL: concise summary of what the workflow does]'
+  keywords:
+  - '[OPTIONAL: KEYWORD1]'
+  - '[KEYWORD2]'
+  themes:
+  - '[OPTIONAL: thematic area, e.g. land, ocean, atmosphere]'
+  jupyter_kernel_info:
+    name: '[OPTIONAL: name of the execution environment or notebook kernel]'
+    python_version: '[PYTHON_VERSION]'
+    env_file: '[Link to the environment file (YAML) used to create the notebook environment]'
+jupyter_notebook_url: '[OPTIONAL: link to the source notebook (e.g. on GitHub)]'
+contact:
+- name: '[OPTIONAL: contact person''s full name]'
+  organization: '[Affiliated institution or company]'
+  links:
+  - rel: about
+    type: text/html
+    href: '[ORGANIZATION_URL]'

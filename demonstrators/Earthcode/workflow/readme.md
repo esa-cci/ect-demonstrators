@@ -1,4 +1,3 @@
-
 ## About the Workflow
 
 This is a workflow showcasing how the ESA CCI Toolbox can be used to create a dataset that can be published to EarthCODE.

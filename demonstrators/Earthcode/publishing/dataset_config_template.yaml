@@ -1,0 +1,32 @@
+# Dataset Configuration Template
+# Replace all [PLACEHOLDER] values with your actual data
+
+# --- REQUIRED fields ---
+dataset_id: '[REQUIRED: name of the Zarr store in your S3 bucket, e.g. my-dataset.zarr]'
+collection_id: "[REQUIRED: unique identifier, no spaces \u2014 use hyphens (e.g. My-Dataset-2024)]"
+license_type: '[REQUIRED: SPDX license identifier, e.g. CC-BY-4.0, MIT, proprietary]'
+stac_catalog_s3_root: '[REQUIRED: S3 root for the STAC Catalog + Item, e.g. s3://my-bucket/stac/my-collection/]'
+
+# --- OPTIONAL fields ---
+osc_project_url: '[OPTIONAL: URL to the project website (e.g. https://deepesdl.eu). Used as the ''via'' link in the project collection. Defaults to the existing DeepESDL project collection]'
+osc_themes:
+- "[OPTIONAL: OSC theme slug, e.g. land, ocean, atmosphere \u2014 auto-lowercased]"
+osc_region: '[OPTIONAL: geographical coverage, e.g. Global]'
+dataset_status: '[OPTIONAL: ongoing | completed | planned (default: ongoing)]'
+description: '[OPTIONAL: human-readable description of the dataset. Overrides the description attribute in the Zarr store if set]'
+documentation_link: '[OPTIONAL: link to documentation, publication, or handbook]'
+visualisation_link: '[OPTIONAL: URL to a visualisation of the dataset (e.g. xcube Viewer, WMS)]'
+osc_project: '[OPTIONAL: OSC project ID (e.g. deep-earth-system-data-lab). Defaults to deep-earth-system-data-lab]'
+osc_project_title: '[OPTIONAL: display title of the OSC project as it appears in the catalog (e.g. DeepESDL). Defaults to a formatted version of osc_project if omitted]'
+access_link: "[OPTIONAL: public S3 URL of the Zarr store \u2014 defaults to s3://deep-esdl-public/{dataset_id}]"
+cf_parameter:
+- name: '[OPTIONAL: CF standard name]'
+  units: '[unit string]'
+
+# stac_catalog_s3_root: deep-code writes the following files to this S3 root:
+#   {stac_catalog_s3_root}/catalog.json               (STAC Catalog root)
+#   {stac_catalog_s3_root}/{collection_id}/item.json  (STAC Item for the whole Zarr)
+# S3 write credentials are resolved in order:
+#   1. STAC_S3_KEY / STAC_S3_SECRET env vars (STAC-specific, any bucket)
+#   2. AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY env vars
+#   3. boto3 default chain (IAM role, ~/.aws/credentials)

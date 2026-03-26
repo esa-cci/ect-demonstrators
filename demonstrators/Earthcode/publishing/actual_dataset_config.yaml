@@ -1,0 +1,18 @@
+dataset_id: 'sss_anom.zarr'
+collection_id: 'sss-monthly-anomalies'
+license_type: 'MIT'
+stac_catalog_s3_root: 's3://deep-esdl-public/stac/sss-monthly-anomalies/'
+
+osc_project: 'knowledge-exchange'
+osc_project_title: 'Knowledge Exchange'
+osc_project_url: 'www.climate.esa.int'
+osc_themes:
+- 'ocean'
+osc_region: 'global'
+dataset_status: 'completed'
+documentation_link: 'https://catalogue.ceda.ac.uk/uuid/3339dec1fbd94599802aba7f1c665679/'
+visualisation_link: 'https://viewer.earthsystemdatalab.net/?dataset=sss_anom'
+access_link: "s3://deep-esdl-public/sss_anom.zarr"
+cf_parameter:
+  - name: sss_anom
+    units: '0.001'
