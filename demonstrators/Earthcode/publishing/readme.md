@@ -53,6 +53,8 @@ Ultimately, the publishing process finished, and a pull request was created at h
 An automatic check is performed (if something should go wrong here, you might have a look at the results from the GitHub Action) or, which is recommended, ask DeepESDL support.
 If the check is successful, the PR is reviewed by ESA EarthCODE personnel, giving a few more suggestions on what to change so the entries appear correctly in the Catalog.
 
-At the time of creating this demonstrator, the pr was under review and the data was not yet published onto the Open Science Catalog, hence we cannot give any links.
-
-
+The entries are as follows:
+The [workflow](https://opensciencedata.esa.int/stac-browser/#/workflows/sss-cci-global-anomalies/record.json) entry describes the steps taken to derive at the result.
+The [experiment](https://opensciencedata.esa.int/experiments/sss-cci-global-anomalies/record) describes the application of the workflow to derive at the application's output.
+The [product](https://opensciencedata.esa.int/stac-browser/#/products/sss-monthly-anomalies/collection.json) then shows the actual dataset that has been created.
+Also, we created a [project](https://opensciencedata.esa.int/stac-browser/#/projects/knowledge-exchange/collection.json) site for the CS CCI Knowledge Exchange project.
