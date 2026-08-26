@@ -1,0 +1,21 @@
+name: ect-r
+channels:
+  - conda-forge
+dependencies:
+  # Python and the ESA Climate Toolbox
+  - python >=3.10
+  - esa-climate-toolbox
+  - jupyterlab
+  - folium
+  - geopandas
+  - pyarrow
+  - rpy2
+
+  # R and packages used by the examples
+  - r-base
+  - r-arrow
+  - r-ggplot2
+  - r-maps
+  - r-reticulate
+  - r-sf
+  - r-testthat

@@ -1,0 +1,15 @@
+Package: ectR
+Title: Minimal R Facade for the ESA Climate Toolbox
+Version: 0.1.0
+Authors@R: person("Tonio Fincke", role = c("aut", "cre"), email = "tonio.fincke@brockmann-consult.de")
+Description: Provides small R entry points for discovering and opening raster
+    and vector data with the Python-based ESA Climate Toolbox through
+    reticulate. Opened data remain Python objects so lazy processing is
+    preserved.
+License: MIT
+Encoding: UTF-8
+Imports:
+    reticulate
+Suggests:
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
