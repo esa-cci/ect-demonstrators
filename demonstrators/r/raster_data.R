@@ -1,7 +1,7 @@
 dataset_id <- paste0(
   "ESACCI-OC-L3S-OC_PRODUCTS-MERGED-8D_DAILY_4km_",
   "GEO_PML_OCx_QAA-2022-fv6.0.zarr"
-)mann
+)
 data_store_id <- "esa-cci-zarr"
 
 suppressPackageStartupMessages(library(reticulate))
@@ -26,7 +26,7 @@ opened <- ect_core$open_data(
 # ECT returns (data_object, data_store_id). Because `opened` remains a Python
 # tuple, its indices are zero-based. Use py_get_item() to make that explicit.
 ocean_colour_ds <- py_get_item(opened, 0L)
-opened_from_store <- py_to_r(py_get_item(opened, 1L))mann
+opened_from_store <- py_to_r(py_get_item(opened, 1L))
 
 message("Dataset opened successfully from store: ", opened_from_store)
 
@@ -58,7 +58,7 @@ atot_ds <- ect_ops$subset_temporal(
     time_range = time_range
 )
 
-print(atot_ds)mann
+print(atot_ds)
 
 irawaddy_delta <- "96.44,16.23"
 
