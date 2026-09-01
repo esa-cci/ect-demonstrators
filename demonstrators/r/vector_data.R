@@ -24,16 +24,16 @@ ect_core <- import("esa_climate_toolbox.core", convert = FALSE)
 
 message("Opening vector dataset:")
 message("  ID:    ", dataset_id)
+message("  store: ", data_store_id)
 message("  time:  ", paste(time_range, collapse = " to "))
 
-opened <- ect_core$open_data(
-  dataset_id = dataset_id,
-  data_store_id = data_store_id,
-  var_names = "xco2",
-  time_range = time_range
-)
+data_store <- ect_core$get_store(data_store_id)
 
-ghg_gdf <- py_get_item(opened, 0L)
+ghg_gdf <- data_store$open_data(
+  data_id = dataset_id,
+  variable_names = r_to_py(list("xco2"), convert = FALSE),
+  time_range = r_to_py(as.list(time_range), convert = FALSE)
+)
 
 message("Dataset opened successfully: ", dataset_id)
 
@@ -52,9 +52,11 @@ geoparquet_path <- normalizePath(
   geoparquet_file,
   mustWork = FALSE
 )
-xco2_gdf$to_parquet(
-  geoparquet_path,
-  index = FALSE
+invisible(
+  xco2_gdf$to_parquet(
+    geoparquet_path,
+    index = FALSE
+  )
 )
 
 message("Reduced vector data written to: ", geoparquet_path)
